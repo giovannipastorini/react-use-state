@@ -4,13 +4,10 @@ import { useState } from 'react'
 
 export default function AppMain () {
 
-    const [description, setDescription] = useState("");
+    const [idSelected, setIdSelected] = useState(null);
 
-    function visualizzaDescrizione(descrizione){
-
-        return(
-            setDescription(descrizione)
-        )
+    function selezionaId(id){
+        setIdSelected(id)    
     }
 
     return (
@@ -18,13 +15,23 @@ export default function AppMain () {
             <div className="container">
                 <div className="row">
                     {
+                        
                         linguaggi_web.map( linguaggio =>{
                             return(
-                                <div className="col-3">
-                                    <div className="card"  key={linguaggio.id}>
-                                        <button onClick={() => visualizzaDescrizione(linguaggio.descrizione)}>{linguaggio.nome}</button>
+                                <div className="col-12 m-3"  key={linguaggio.id}>
+                                    < div className="card">
+                                        <div className="col-3 m-2">
+                                            <button type="button" 
+                                                    onClick={() => selezionaId (linguaggio.id)}
+                                                    className={`btn ${linguaggio.id === idSelected ? 'btn-warning':'btn-primary'} `}>
+                                                    {linguaggio.nome}
+                                            </button>
+                                        </div>
+                                        {/* <button onClick={() => selezionaId (linguaggio.id)}>{linguaggio.nome}</button> */}
                                         <div className="card-body">
-                                            <p>{linguaggio.descrizione}</p>
+                                            <p className={`description ${linguaggio.id === idSelected ? 'active':''}`} >
+                                                {linguaggio.descrizione}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
