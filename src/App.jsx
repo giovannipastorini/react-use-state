@@ -1,5 +1,9 @@
 import { useState } from 'react'
 
+import AppHeader from './AppHeader'
+import AppFooter from './AppFooter'
+import AppMain from './AppMain'
+
 
 
 
@@ -8,7 +12,9 @@ function App() {
 
   return (
     <>
-      <h1>ciao sono il componente app!</h1>
+      <AppHeader />
+      <AppMain /> 
+      <AppFooter />  
     </>
   )
 }

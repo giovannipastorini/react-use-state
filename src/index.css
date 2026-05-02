@@ -1,0 +1,17 @@
+
+@import url(bootstrap);
+
+footer{
+  color: red;
+}
+
+
+.card{
+  height: 343px;
+
+  .card-body{
+    >p{
+      display: none;
+    } 
+  }
+}
